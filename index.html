@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Login and Registration</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Custom styles -->
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+
+      .container {
+        margin: 0 auto;
+        margin-top: 50px;
+      }
+
+      .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .card-body {
+        padding: 20px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+      }
+
+      .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+      }
+      .account{
+            margin-top: 10px;
+        }
+        .account a{
+            text-decoration: none;
+            margin-left: 5px;
+        }
+
+        .jumbotron {
+        background-image: url("https://preview.redd.it/airport-city-accra-ghana-not-to-be-confused-with-downtown-v0-3d7o7wq3w2gb1.jpg?width=640&crop=smart&auto=webp&s=63a92d976645dbc89ad0c72b4534c61f07c0b909"); /* Replace with your image URL */
+        background-size: cover;
+        color: #ffffff;
+        text-align: center;
+        padding: 250px 0;
+        margin-bottom: 0;
+        background-color: rgba(0, 0, 0, 0.247);
+        /* padding: 3rem; */
+      }
+
+      .login{
+        margin-top: -100px;
+      }
+
+      .heading{
+        /* backdrop-filter: blur(10px); */
+        width: auto;
+        margin: 0 auto;
+        padding: 2rem;
+       
+      }
+    </style>
+  </head>
+  <body>
+    <div class="jumbotron">
+  
+    </div>
+    <div class="container">
+      <div class="login">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-center">Login As Employee</h5>
+            <form>
+              <div class="form-group">
+                <label for="loginEmail">Email address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="loginEmail"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter email"
+                />
+              </div>
+              <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="loginPassword"
+                  placeholder="Password"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">
+                Login
+              </button>
+              <p class="account">
+                Don't you have an account?<a href="/employee/signup.html"
+                  >Signup here</a
+                >
+              </p>
+              <p>Login as an admin <a href="./admin/login.html">Admin login</a></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="./employee/login.js"></script>
+    <!-- <script src="./index.js"></script> -->
+  </body>
+</html>
