@@ -16,7 +16,7 @@ function loginUser() {
         passwordInput === storedUser.password
       ) {
         alert("Login successful");
-        window.location.href = "./employee/booking.html"; 
+        window.location.href = "/employee/listing.html"; 
       } else {
         alert("Incorrect email or password");
       }

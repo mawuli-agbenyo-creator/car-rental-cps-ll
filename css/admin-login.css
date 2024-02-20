@@ -25,14 +25,6 @@ body {
   margin-right: 20px;
   font-size: 25px;
 }
-.card p{
-  margin-top: 10px;
-}
-
-.card a{
-  text-decoration: none;
-  margin-left: 10px;
-}
 
 .container{
   margin-top: 10rem;
@@ -45,7 +37,14 @@ body {
 
 }
 
+.card p{
+  margin-top: 10px;
+}
 
+.card a{
+  text-decoration: none;
+  margin-left: 10px;
+}
 
 .logo{
   margin-right: 10px;
@@ -94,15 +93,15 @@ body {
     justify-content: space-center;
     margin: 0 auto;
     gap: 10rem;
-    margin-top: 8rem; /* Adjust based on design */
+    margin-top: 10rem; /* Adjust based on design */
   }
 
   .card {
     border: none;
-    height: 700px; /* Adjust based on design */
+    height: 500px; /* Adjust based on design */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 250%; /* Adjust based on design */
+    width: 170%; /* Adjust based on design */
   }
 
   .card p{
@@ -136,8 +135,7 @@ body {
   .footer{
     display: flex;
     justify-content: space-evenly;
-    margin-top: 8rem;
-    margin-bottom: 2rem;
+    margin-top: 15rem;
     color: white;
   }
 

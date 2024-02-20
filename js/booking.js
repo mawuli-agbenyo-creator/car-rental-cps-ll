@@ -30,8 +30,11 @@ function displayRides() {
         const driverId = document.createElement('p');
         driverId.textContent = "Driver ID: " + ride.riderId;
 
-        const carId = document.createElement('p');
-        carId.textContent = "Car Number: " + ride.cardNumber;
+        const cardNumber = document.createElement('p');
+        cardNumber.textContent = "Car Number: " + ride.cardNumber;
+
+        const shifts = document.createElement('p');
+        shifts.textContent = "Shift: " + ride.shifts;
 
         const time = document.createElement('p');
         time.textContent = "Time Slot: " + ride.time;
@@ -50,13 +53,15 @@ function displayRides() {
             alert("Booked successfully")
         });
         btn.textContent = "Book Now";
+        btn.style.color = "white"
 
 
         // Append elements to the rideContainer
         rideContainer.appendChild(img);
         rideContainer.appendChild(name);
         rideContainer.appendChild(driverId);
-        rideContainer.appendChild(carId);
+        rideContainer.appendChild(cardNumber);
+        rideContainer.appendChild(shifts);
         rideContainer.appendChild(time);
         rideContainer.appendChild(location);
         rideContainer.appendChild(btn);

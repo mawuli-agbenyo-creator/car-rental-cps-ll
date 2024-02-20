@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Create a new customer list item
             const newCustomerItem = document.createElement('li');
             newCustomerItem.className = 'customer-item';
-            newCustomerItem.textContent = `${customerDetails.name} - ${customerDetails.email}`;
+            newCustomerItem.textContent = `${customerDetails.name} - ${customerDetails.employeeId}`;
 
             // Add delete button to remove the customer
             const deleteButton = document.createElement('button');
