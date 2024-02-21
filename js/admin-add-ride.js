@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Save the new ride to local storage
     saveRideToLocalStorage({
-      driver_name: rideName,
+      car_name: rideName,
       riderId: riderId,
       pickupLocation: pickupLocation,
       dropofLocation: dropofLocation,
@@ -102,18 +102,20 @@ document.addEventListener("DOMContentLoaded", function () {
     // Save the updated rides to local storage
     localStorage.setItem("Rides", JSON.stringify(existingRides));
   }
-
   function removeRideFromLocalStorage(rideName) {
     const existingRides = JSON.parse(localStorage.getItem("Rides")) || [];
 
     // Filter out the ride to be removed
     const updatedRides = existingRides.filter(
-      (ride) => ride.car_name !== rideName
+      (ride) => ride.driver_name !== rideName
     );
 
     // Save the updated list back to local storage
     localStorage.setItem("Rides", JSON.stringify(updatedRides));
-  }
+}
+
+
+
 
   function createRideListItem(
     rideName,

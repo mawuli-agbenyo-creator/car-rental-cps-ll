@@ -1,3 +1,4 @@
+
 .card-1{
     background-color: #985DDC;
 }
@@ -6,6 +7,15 @@
     color: #fff;
 }
 
+.inner{
+    color: white;
+}
+
+.card a{
+    color: white;
+}
+
 .card-2{
     background-color: #017BFE;
 }
+

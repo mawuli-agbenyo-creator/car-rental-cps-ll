@@ -1,4 +1,10 @@
+const adminName = document.querySelector(".admin-name");
 
+const admin = JSON.parse(localStorage.getItem("admin"));
+
+if (admin && admin.fullName) {
+    adminName.textContent = admin.fullName;
+  }
 document.addEventListener("DOMContentLoaded", () => {
     displayBookedSlots();
     setupPrintButton();
