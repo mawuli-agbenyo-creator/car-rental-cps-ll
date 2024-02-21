@@ -29,6 +29,25 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- AdminLTE JS -->
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.0.5/dist/js/adminlte.min.js"></script>
+
+    <style>
+      .customer-item{
+        list-style-type: none;
+      }
+
+      .button{
+        margin-top: 10px;
+        align-items: center;
+        display: inline;
+        justify-content: end;
+        border: none;
+        background-color: #ff3300;
+        border-radius: 5px;
+        padding: 5px;
+        margin-left: 5rem;
+        color: white;
+      }
+    </style>
   </head>
   <body class="hold-transition sidebar-mini">
     <div class="wrapper">
@@ -43,9 +62,6 @@
           </li>
           <li class="nav-item d-none d-sm-inline-block">
             <a href="dashboard.html" class="nav-link">Home</a>
-          </li>
-          <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Contact</a>
           </li>
         </ul>
 
@@ -79,25 +95,20 @@
         <!-- Brand Logo -->
         <a href="#" class="brand-link">
           <img
-            src="path/to/your/logo.png"
+            src="/images/imeLogo.png"
             alt="Logo"
             class="brand-image img-circle elevation-3"
             style="opacity: 0.8"
+            height="90"
+            width="90"
           />
-          <span class="brand-text font-weight-light">Car Rental</span>
+          <span class="brand-text font-weight-light">IME LIMITED</span>
         </a>
 
         <!-- Sidebar -->
         <div class="sidebar">
           <!-- User Panel -->
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-              <img
-                src="path/to/your/avatar.jpg"
-                class="img-circle elevation-2"
-                alt="User Image"
-              />
-            </div>
             <div class="info">
               <a href="#" class="d-block admin-name">Your Name</a>
             </div>
@@ -129,16 +140,10 @@
               data-accordion="false"
             >
               <!-- Sample Sidebar Items -->
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-car"></i>
-                  <p>Cars</p>
-                </a>
-              </li>
 
               <li class="nav-item">
-                <a href="rides.html" class="nav-link">
-                  <i class="nav-icon fas fa-uber"></i>
+                <a href="bookedEmployyes.html" class="nav-link ">
+                  <i class="nav-icon fas fa-car"></i>
                   <p>Booked Employees</p>
                 </a>
               </li>
@@ -192,7 +197,7 @@
               <div class="col-md-6">
                 <div class="card">
                   <div class="card-header">
-                    <h4 class="card-title">Add Customer</h4>
+                    <h4 class="card-title">Add A Driver</h4>
                   </div>
                   <div class="card-body">
                     <form id="addCustomerForm">
@@ -202,7 +207,7 @@
                           type="text"
                           class="form-control"
                           id="customerName"
-                          placeholder="Enter customer name"
+                          placeholder="Enter driver name"
                           required
                         />
                       </div>
@@ -227,7 +232,7 @@
                         />
                       </div>
                       <button type="submit" class="btn btn-primary">
-                        Add Customer
+                        Add Driver
                       </button>
                     </form>
                   </div>
@@ -244,6 +249,6 @@
       </footer>
     </div>
     <script src="../js/customers.js"></script>
-    <script src="../js/admin-add-ride.js"></script>
+    <!-- <script src="../js/admin-add-ride.js"></script> -->
   </body>
 </html>

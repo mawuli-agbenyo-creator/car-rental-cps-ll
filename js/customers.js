@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
 
         // Get form values
-        const customerName = document.getElementById('customerName').value;
+        const driverName = document.getElementById('customerName').value;
         const employeeId = document.getElementById('employeeID').value;
         const driverLin = document.getElementById('driverLicense').value;
 
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
         newCustomerItem.className = 'customer-item';
         driverLicense.textContent = `${driverLin}`;
         employeeID.textContent = `${employeeId}`;
-        newCustomerItem.textContent = `${customerName}`;
+        newCustomerItem.textContent = `${driverName}`;
 
 
         // Add delete button to remove the customer
@@ -33,36 +33,36 @@ document.addEventListener('DOMContentLoaded', function () {
             customerList.removeChild(newCustomerItem);
 
             // Remove the customer from local storage
-            removeCustomerFromLocalStorage(customerName);
+            removeCustomerFromLocalStorage(driverName);
         });
 
         newCustomerItem.appendChild(deleteButton);
         customerList.appendChild(newCustomerItem);
 
         // Save the new customer to local storage
-        saveCustomerToLocalStorage(customerName, { name: customerName, employeeId: employeeId, driverLin: driverLin});
+        saveCustomerToLocalStorage(driverName, { name: driverName, employeeId: employeeId, driverLin: driverLin});
 
         // Clear the form
         addCustomerForm.reset();
     });
 
-    function saveCustomerToLocalStorage(customerName, customerDetails) {
+    function saveCustomerToLocalStorage(driverName, customerDetails) {
         // Get existing customers from local storage
-        const existingCustomers = JSON.parse(localStorage.getItem('Customers')) || {};
+        const existingCustomers = JSON.parse(localStorage.getItem('Drivers')) || {};
 
         // Add the new customer
-        existingCustomers[customerName] = customerDetails;
+        existingCustomers[driverName] = customerDetails;
 
         // Save the updated customers to local storage
-        localStorage.setItem('Customers', JSON.stringify(existingCustomers));
+        localStorage.setItem('Drivers', JSON.stringify(existingCustomers));
     }
 
-    function removeCustomerFromLocalStorage(customerName) {
+    function removeCustomerFromLocalStorage(driverName) {
         // Get existing customers from local storage
-        const existingCustomers = JSON.parse(localStorage.getItem('Customers')) || {};
+        const existingCustomers = JSON.parse(localStorage.getItem('Drivers')) || {};
 
         // Remove the customer
-        delete existingCustomers[customerName];
+        delete existingCustomers[driverName];
 
         // Save the updated customers to local storage
         localStorage.setItem('Customers', JSON.stringify(existingCustomers));
@@ -70,26 +70,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function loadCustomersFromLocalStorage() {
         // Get existing customers from local storage
-        const existingCustomers = JSON.parse(localStorage.getItem('Customers')) || {};
+        const existingCustomers = JSON.parse(localStorage.getItem('Drivers')) || {};
 
         // Display existing customers in the list
-        for (const customerName in existingCustomers) {
-            const customerDetails = existingCustomers[customerName];
+        for (const driverName in existingCustomers) {
+            const customerDetails = existingCustomers[driverName];
 
             // Create a new customer list item
             const newCustomerItem = document.createElement('li');
             newCustomerItem.className = 'customer-item';
-            newCustomerItem.textContent = `${customerDetails.name} - ${customerDetails.employeeId}`;
+            newCustomerItem.textContent = `Drivers Name:  ${customerDetails.name} -  Drivers Id ${customerDetails.employeeId}`;
 
             // Add delete button to remove the customer
             const deleteButton = document.createElement('button');
-            deleteButton.className = 'btn btn-sm btn-danger float-right';
+            deleteButton.className = 'button ';
             deleteButton.textContent = 'Delete';
             deleteButton.addEventListener('click', function () {
                 customerList.removeChild(newCustomerItem);
 
                 // Remove the customer from local storage
-                removeCustomerFromLocalStorage(customerName);
+                removeCustomerFromLocalStorage(driverName);
             });
 
             newCustomerItem.appendChild(deleteButton);

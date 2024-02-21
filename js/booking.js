@@ -1,76 +1,95 @@
-const btn = document.querySelectorAll(".btn-primary");
 
-function booked() {
-    alert("Booking successful");
+
+function createElement(type, options = {}) {
+    const element = document.createElement(type);
+
+    for (const key in options) {
+        if (options.hasOwnProperty(key)) {
+            if (key === 'style' && typeof options[key] === 'object') {
+                Object.assign(element.style, options[key]);
+            } else {
+                element[key] = options[key];
+            }
+        }
+    }
+
+    return element;
 }
 
-btn.forEach((button) => {
-    button.addEventListener("click", booked);
-});
+function createButton(ride) {
+    const buttonOptions = {
+        className: 'btn btn-primary',
+        textContent: 'Book Now',
+        style: {
+            backgroundColor: "#0062CC",
+            borderRadius: "5px",
+            border: "none",
+            width: "200px",
+            padding: "10px",
+            color: "white"
+        }
+    };
 
-// JavaScript
+    const btn = createElement('button', buttonOptions);
+    btn.addEventListener('click', () => handleBooking(ride));
+
+    return btn;
+}
+
+function handleBooking(ride) {
+    // Get user information from local storage
+    const userInfor = JSON.parse(localStorage.getItem("user")) || {};
+
+    // Assuming you have user information properties like fullName, userId, and department
+    const { fullName, userId, department } = userInfor;
+
+    const booking = {
+        name: fullName,
+        employeeId: userId,
+        department: department,
+        shifts: ride.shifts,
+        time: ride.time,
+        pickupLocation: ride.pickupLocation,
+    };
+
+    const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+    bookings.push(booking);
+
+    localStorage.setItem("bookings", JSON.stringify(bookings));
+
+    console.log(booking);
+}
+
+
 function displayRides() {
     const rideList = document.getElementById('rideList');
+    console.log(rideList);
     const rides = JSON.parse(localStorage.getItem('Rides')) || [];
+    console.log(rides);
 
     rides.forEach((ride) => {
-        // Create elements for each ride
-        const rideContainer = document.createElement('div');
-        rideContainer.className = 'ride-container';
+        const rideContainer = createElement('div', { className: 'ride-container' });
 
-        const img = document.createElement('img');
-        img.src = ride.imageUrl;
-        img.alt = 'Ride Image';
-        img.className = 'ride-image';
-        img.style.width = '300px';
-
-        const name = document.createElement('p');
-        name.textContent = "Driver Name: " + ride.car_name;
-
-        const driverId = document.createElement('p');
-        driverId.textContent = "Driver ID: " + ride.riderId;
-
-        const cardNumber = document.createElement('p');
-        cardNumber.textContent = "Car Number: " + ride.cardNumber;
-
-        const shifts = document.createElement('p');
-        shifts.textContent = "Shift: " + ride.shifts;
-
-        const time = document.createElement('p');
-        time.textContent = "Time Slot: " + ride.time;
-
-        const location = document.createElement('p');
-        location.textContent = "Pick-Up Location: " + ride.pickupLocation;
-
-        const btn = document.createElement('button');
-        btn.createClassName = 'btn btn-primary';
-        btn.style.backgroundColor = "#0062CC"
-        btn.style.borderRadius = "5px";
-        btn.style.border = "none"
-        btn.style.width = "200px";
-        btn.style.padding = "10px"
-        btn.addEventListener('click', () => {
-            alert("Booked successfully")
+        const img = createElement('img', {
+            src: ride.imageUrl,
+            alt: 'Ride Image',
+            className: 'ride-image',
+            style: { width: '300px' }
         });
-        btn.textContent = "Book Now";
-        btn.style.color = "white"
 
+        const details = ['car_name', 'riderId', 'cardNumber', 'shifts', 'time', 'pickupLocation'];
+        const rideInfo = details.map(detail => createElement('p', { textContent: `${capitalizeFirstLetter(detail)}: ${ride[detail]}` }));
 
-        // Append elements to the rideContainer
-        rideContainer.appendChild(img);
-        rideContainer.appendChild(name);
-        rideContainer.appendChild(driverId);
-        rideContainer.appendChild(cardNumber);
-        rideContainer.appendChild(shifts);
-        rideContainer.appendChild(time);
-        rideContainer.appendChild(location);
-        rideContainer.appendChild(btn);
+        const btn = createButton(ride);
 
-        // Append the rideContainer to the rideList
+        [img, ...rideInfo, btn].forEach(el => rideContainer.appendChild(el));
+
         rideList.appendChild(rideContainer);
     });
 }
 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 displayRides();
-
-

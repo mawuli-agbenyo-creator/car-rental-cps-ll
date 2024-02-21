@@ -1,11 +1,6 @@
 
 function initMap() {
   // Initialize the map
-  // const map = new google.maps.Map(document.getElementById('map'), {
-  //   center: { lat: 0, lng: 0 }, // Set the initial map center
-  //   zoom: 10, // Set the initial map zoom level
-  // });
-
 
     // Set the componentRestrictions to restrict results to Ghana
 const options = {

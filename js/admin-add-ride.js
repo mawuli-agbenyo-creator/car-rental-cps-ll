@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const rideName = document.getElementById('rideName').value;
         const riderId = document.getElementById('riderId').value;
         const pickupLocation = document.getElementById('pickupLocation').value;
+        const dropofLocation = document.getElementById('dropoffLocation').value;
         const time = document.getElementById('time').value;
         const carNumber = document.getElementById('carNumber').value;
         const rideImageUrl = document.getElementById('rideImageUrl').value;
@@ -28,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const iconSize = 50; // Adjust the icon size as needed
 
         // Add new ride to the list
-        const newRideItem = createRideListItem(rideName, riderId, pickupLocation, shifts, time, carNumber, rideImageUrl, iconSize);
+        const newRideItem = createRideListItem(rideName, riderId, pickupLocation, dropofLocation, shifts, time, carNumber, rideImageUrl, iconSize);
         rideList.appendChild(newRideItem);
 
         // Save the new ride to local storage
@@ -36,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
             car_name: rideName,
             riderId: riderId,
             pickupLocation: pickupLocation,
+            dropofLocation: dropofLocation,
             imageUrl: rideImageUrl,
             shifts: shifts,
             time: time,
@@ -67,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('Rides', JSON.stringify(updatedRides));
     }
 
-    function createRideListItem(rideName, riderId, pickupLocation, shifts, time, carNumber, rideImageUrl, iconSize) {
+    function createRideListItem(rideName, riderId, pickupLocation, dropofLocation, shifts, time, carNumber, rideImageUrl, iconSize) {
         const newRideItem = document.createElement('li');
         newRideItem.className = 'list-group-item';
 
@@ -84,11 +86,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Add ride details to the list item
         const rideDetailsText = document.createElement('p');
-        rideDetailsText.textContent = `Drivers Name: ${rideName}- Work ID: ${riderId} - Car Number: ${carNumber} - Pick-Up Location: ${pickupLocation} - Shift: ${shifts} - Time: ${time}`;
+        rideDetailsText.textContent = `Drivers Name: ${rideName}- Work ID: ${riderId} - Car Number: ${carNumber} - Pick-Up Location: ${pickupLocation}- Drop-Off Location ${dropofLocation} - Shift: ${shifts} - Time: ${time}`;
         newRideItem.appendChild(rideDetailsText);
 
         // Add delete button to remove the ride
         const deleteButton = document.createElement('button');
+        const editButton = document.createElement('button');
+        editButton.className = 'btn mr-4 btn-sm btn-primary float-right';
+        editButton.textContent = 'Edit';
         deleteButton.className = 'btn btn-sm btn-danger float-right';
         deleteButton.textContent = 'Delete';
         deleteButton.addEventListener('click', function () {
@@ -98,7 +103,27 @@ document.addEventListener('DOMContentLoaded', function () {
             removeRideFromLocalStorage(rideName);
         });
 
+        editButton.addEventListener('click', function () {
+            // Get form values and set them to the form fields for editing 
+            document.getElementById('rideName').value = rideName;
+            document.getElementById('riderId').value = riderId;
+            document.getElementById('pickupLocation').value = pickupLocation;
+            document.getElementById('dropoffLocation').value = dropofLocation;
+            document.getElementById('time').value = time;
+            document.getElementById('carNumber').value = carNumber;
+            document.getElementById('rideImageUrl').value = rideImageUrl;
+            document.getElementById('timeShift').value = shifts;
+            
+            // Remove the ride from local  storage
+            removeRideFromLocalStorage(rideName);
+            rideList.removeChild(newRideItem);
+
+            
+
+        });
+
         newRideItem.appendChild(deleteButton);
+        newRideItem.appendChild(editButton);
 
         return newRideItem;
     }
@@ -113,6 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 rideDetails.car_name,
                 rideDetails.riderId,
                 rideDetails.pickupLocation,
+                rideDetails.dropofLocation,
                 rideDetails.shifts,
                 rideDetails.time,
                 rideDetails.carNumber,
