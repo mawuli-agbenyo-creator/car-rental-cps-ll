@@ -161,7 +161,7 @@ function saveRideToLocalStorage(rideDetails) {
     // Save the updated rides to local storage
     localStorage.setItem('Employees_rides', JSON.stringify(existingRides));
 
-    window.location.href = '/employee/Receipt.html';
+    window.location.href = '/employee/congratulations.html';
 }
 
 displayRides();

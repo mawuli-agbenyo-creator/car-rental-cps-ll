@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const admin = JSON.parse(localStorage.getItem('admin'));
 
     if (admin && admin.fullName) {
-        adminName.textContent = admin.fullName;
+        adminName.textContent = "Project Work";
     }
 
     // Load existing rides from local storage on page load
