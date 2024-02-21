@@ -30,14 +30,9 @@
     <!-- AdminLTE JS -->
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.0.5/dist/js/adminlte.min.js"></script>
 
-    <style>
-      /* .ride-details{
-            display: flex;
-            flex-direction: column;           
-            background-color: rgb(124, 124, 124);
-        } */
-    </style>
+    <link rel="stylesheet" href="/css/dashboard.css">
   </head>
+
   <body class="hold-transition sidebar-mini">
     <div class="wrapper">
       <!-- Navbar -->
@@ -51,9 +46,6 @@
           </li>
           <li class="nav-item d-none d-sm-inline-block">
             <a href="#" class="nav-link">Home</a>
-          </li>
-          <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Contact</a>
           </li>
         </ul>
 
@@ -102,17 +94,16 @@
             alt="Logo"
             class="brand-image img-circle elevation-3"
             style="opacity: 0.8"
+            height="100"
+            width="100"
           />
-          <span class="brand-text font-weight-light">Car Rental</span>
+          <span class="brand-text font-weight-light">IME LIMITED</span>
         </a>
 
         <!-- Sidebar -->
         <div class="sidebar">
           <!-- User Panel -->
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <!-- <div class="image">
-                        <img src="path/to/your/avatar.jpg" class="img-circle elevation-2" alt="User Image">
-                    </div> -->
             <div class="info">
               <a href="#" class="d-block admin-name"></a>
             </div>
@@ -144,30 +135,25 @@
               data-accordion="false"
             >
               <!-- Sample Sidebar Items -->
+  
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="bookedEmployyes.html" class="nav-link">
                   <i class="nav-icon fas fa-car"></i>
-                  <p>Cars</p>
+                  <p>Booked Employees</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="rides.html" class="nav-link">
-                  <i class="nav-icon fas fa-bus"></i>
-                  <p>Booked Rides</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="employee.html" class="nav-link">
+                <a href="customers.html" class="nav-link">
                   <i class="nav-icon fas fa-users"></i>
-                  <p>Employees</p>
+                  <p>Drivers</p>
                 </a>
               </li>
-              <!-- <li class="nav-item">
+              <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-chart-bar"></i>
                   <p>Reports</p>
                 </a>
-              </li> -->
+              </li>
               <!-- Add more menu items as needed -->
 
               <li class="nav-item">
@@ -195,7 +181,7 @@
                 <!-- small card -->
                 <div class="small-box bg-danger">
                   <div class="inner">
-                    <h3 id="data-count"></h3>
+                    <h3 id="total_cars"></h3>
 
                     <p>Total Cars</p>
                   </div>
@@ -213,7 +199,7 @@
                 <!-- small card -->
                 <div class="small-box bg-warning">
                   <div class="inner">
-                    <h3 id="Employees_rides">30</h3>
+                    <h3 id="booked_rides">30</h3>
 
                     <p>Booked Rides</p>
                   </div>
@@ -243,6 +229,23 @@
                   ></a>
                 </div>
               </div>
+
+              <div class="col-lg-4 col-6">
+                <!-- small card -->
+                <div class="small-box bg-primary">
+                  <div class="inner">
+                    <h3 id="drivers_count"></h3>
+
+                    <p>Total Drivers</p>
+                  </div>
+                  <div class="icon">
+                    <i class="fas fa-car"></i>
+                  </div>
+                  <a href="#" class="small-box-footer"
+                    >More info <i class="fas fa-arrow-circle-right"></i
+                  ></a>
+                </div>
+              </div>
             </div>
             <!-- /.row -->
 
@@ -259,7 +262,7 @@
               <div class="col-md-6">
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">Add Ride Slot</h3>
+                    <h3 class="card-title">Add A Slot</h3>
                   </div>
                   <div class="card-body">
                     <!-- Add Ride Form -->
@@ -270,13 +273,13 @@
                           type="text"
                           class="form-control"
                           id="rideName"
-                          placeholder="Enter ride name"
+                          placeholder="Enter driver name"
                           required
                         />
                       </div>
 
                       <div class="form-group">
-                        <label for="rideImageUrl">Ride Image URL</label>
+                        <label for="rideImageUrl">Car Image URL</label>
                         <input
                           type="text"
                           class="form-control"
@@ -291,7 +294,7 @@
                           type="number"
                           class="form-control"
                           id="riderId"
-                          placeholder="Enter ride prize"
+                          placeholder="Enter driver ID"
                           required
                         />
                       </div>
@@ -302,7 +305,7 @@
                           type="number"
                           class="form-control"
                           id="carNumber"
-                          placeholder="Enter ride prize"
+                          placeholder="Enter car number"
                           required
                         />
                       </div>
@@ -318,7 +321,7 @@
                       <div class="form-group col-md-6">
                         <label>Time</label>
                         <input
-                          type="datetime-local"
+                          type="time"
                           class="form-control"
                           id="time"
                           name="time"
@@ -335,11 +338,16 @@
                           placeholder="City or Airport"
                         />
                       </div>
-
-                      <!-- <div class="form-group">
-                                            <label for="rideDesc">Ride Description</label>
-                                            <textarea class="form-control" id="rideDesc" placeholder="Enter ride description" required></textarea>
-                                        </div> -->
+                      <div class="form-group col-md-6">
+                        <label for="dropoffLocation">Drop-off Location</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="dropoffLocation"
+                          name="dropoffLocation"
+                          placeholder="City or Airport"
+                        />
+                      </div>
                       <button type="submit" class="btn btn-primary">
                         Add Ride
                       </button>
@@ -377,7 +385,6 @@
       </footer>
     </div>
     <script src="../js/admin-add-ride.js"></script>
-    <script src="../js/local_storage_data_counter.js"></script>
     <!-- <script src="../js/geo.js"></script> -->
   </body>
 </html>
