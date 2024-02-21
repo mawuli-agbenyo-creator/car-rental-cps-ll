@@ -23,10 +23,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const time = document.getElementById('time').value;
         const carNumber = document.getElementById('carNumber').value;
         const rideImageUrl = document.getElementById('rideImageUrl').value;
+        const shifts = document.getElementById('timeShift').value;
+        console.log(shifts);
         const iconSize = 50; // Adjust the icon size as needed
 
         // Add new ride to the list
-        const newRideItem = createRideListItem(rideName, riderId, pickupLocation, time, carNumber, rideImageUrl, iconSize);
+        const newRideItem = createRideListItem(rideName, riderId, pickupLocation, shifts, time, carNumber, rideImageUrl, iconSize);
         rideList.appendChild(newRideItem);
 
         // Save the new ride to local storage
@@ -35,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
             riderId: riderId,
             pickupLocation: pickupLocation,
             imageUrl: rideImageUrl,
+            shifts: shifts,
             time: time,
             carNumber: carNumber
         });
@@ -64,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('Rides', JSON.stringify(updatedRides));
     }
 
-    function createRideListItem(rideName, riderId, pickupLocation, time, carNumber, rideImageUrl, iconSize) {
+    function createRideListItem(rideName, riderId, pickupLocation, shifts, time, carNumber, rideImageUrl, iconSize) {
         const newRideItem = document.createElement('li');
         newRideItem.className = 'list-group-item';
 
@@ -81,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Add ride details to the list item
         const rideDetailsText = document.createElement('p');
-        rideDetailsText.textContent = `Drivers Name: ${rideName}- Work ID: ${riderId} - Car Number: ${carNumber} - Pick-Up Location: ${pickupLocation} - Time: ${time}`;
+        rideDetailsText.textContent = `Drivers Name: ${rideName}- Work ID: ${riderId} - Car Number: ${carNumber} - Pick-Up Location: ${pickupLocation} - Shift: ${shifts} - Time: ${time}`;
         newRideItem.appendChild(rideDetailsText);
 
         // Add delete button to remove the ride
@@ -110,6 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 rideDetails.car_name,
                 rideDetails.riderId,
                 rideDetails.pickupLocation,
+                rideDetails.shifts,
                 rideDetails.time,
                 rideDetails.carNumber,
                 rideDetails.imageUrl,

@@ -23,7 +23,8 @@ function userDetails() {
         // Redirect to the desired page after successful login
         // Change the URL to your desired  page if the local storage is not empty
         if (localStorage.getItem('admin') !== null) {
-            window.location.href = "./admin/login.html";
+            // window.location.href = "../admin/login.html";
+            window.location.href = "src/admin/dashboard.html";
         }
     } catch (error) {
         console.error("Error storing data:", error);

@@ -21,7 +21,7 @@ function userDetails() {
         localStorage.setItem('user', JSON.stringify(user));
         // Change the URL to your desired  page if the local storage is not empty
         if (localStorage.getItem('user') !== null) {
-            window.location.href = "/index.html";
+            window.location.href = "../index.html";
         }
     } catch (error) {
         console.error("Error storing data:", error);
