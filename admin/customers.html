@@ -130,7 +130,7 @@
             >
               <!-- Sample Sidebar Items -->
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="dashboard.html" class="nav-link">
                   <i class="nav-icon fas fa-car"></i>
                   <p>Cars</p>
                 </a>
@@ -172,71 +172,35 @@
       <div class="content-wrapper">
         <!-- Your page content goes here -->
         <section class="content">
-          <div class="container-fluid">
-            <div class="row">
-              <!-- Existing Customers List -->
-              <div class="col-md-6">
-                <div class="card">
-                  <div class="card-header">
-                    <h4 class="card-title">Existing Drivers</h4>
-                  </div>
-                  <div class="card-body">
-                    <ul id="customerList" class="customer-list">
-                      <!-- Customer items will be dynamically added here -->
-                    </ul>
-                  </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Existing Customers List -->
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Existing Employee</h4>
+                            </div>
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Employee ID</th>
+                                            <th>License Number</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="customerList">
+                                        <!-- Customer items will be dynamically added here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-
-              <!-- Add Customer Form -->
-              <div class="col-md-6">
-                <div class="card">
-                  <div class="card-header">
-                    <h4 class="card-title">Add Customer</h4>
-                  </div>
-                  <div class="card-body">
-                    <form id="addCustomerForm">
-                      <div class="form-group">
-                        <label for="customerName">Drivers Name</label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="customerName"
-                          placeholder="Enter customer name"
-                          required
-                        />
-                      </div>
-                      <div class="form-group">
-                        <label for="customerEmail">Employee ID</label>
-                        <input
-                          type="number"
-                          class="form-control"
-                          id="employeeID"
-                          placeholder="Enter ID number"
-                          required
-                        />
-                      </div>
-                      <div class="form-group">
-                        <label for="driverLicense">License Number</label>
-                        <input
-                          type="number"
-                          class="form-control"
-                          id="driverLicense"
-                          placeholder="Enter license number"
-                          required
-                        />
-                      </div>
-                      <button type="submit" class="btn btn-primary">
-                        Add Customer
-                      </button>
-                    </form>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
         </section>
-      </div>
+    </div>
+    
 
       <!-- Footer -->
       <footer class="main-footer">

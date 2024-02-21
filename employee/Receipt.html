@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Booking Receipts</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom styles -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .receipt {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .header-bg {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .details-section,
+        .customer-section,
+        .payment-section,
+        .confirmation-section {
+            padding: 20px;
+        }
+
+        .confirmation-section {
+            background-color: #d4edda;
+        }
+
+        .total-amount {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        .thank-you-message {
+            font-style: italic;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card receipt">
+        <div class="header-bg">
+            <h2 class="mb-0">Booking Receipt</h2>
+        </div>
+        <div class="details-section">
+            <h4 class="card-title">Car Rental Details</h4>
+            <p id="carModel"><strong>Car Model:</strong></p>
+            <p><strong>Price per Day:</strong> $50</p>
+            <p><strong>Rental Period:</strong> 3 days</p>
+        </div>
+        <hr>
+        <div class="customer-section">
+            <h4 class="card-title">Customer Information</h4>
+            <p><strong>Full Name:</strong> Mawuli Agbenyo</p>
+            <p><strong>Email:</strong> 100</p>
+            <p><strong>Phone Number:</strong> 100</p>
+        </div>
+        <hr>
+        <div class="payment-section">
+            <h4 class="card-title">Payment Information</h4>
+            <p><strong>Total Amount:</strong> <span class="total-amount">$150</span></p>
+            <p><strong>Payment Method:</strong> Credit Card</p>
+        </div>
+        <hr>
+        <div class="confirmation-section">
+            <p class="card-text text-success"><strong>Booking Confirmed!</strong></p>
+            <p class="thank-you-message">Thank you for choosing our car rental service. Your booking has been confirmed.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const bookingData = JSON.parse(localStorage.getItem('Employees_rides'));
+        if (bookingData) {
+            document.getElementById('carModel').innerText = bookingData.car_name;
+            document.getElementById('fullName').innerText = bookingData.full_name;
+            document.getElementById('email').innerText = bookingData.email;
+            document.getElementById('phoneNumber').innerText = bookingData.phone_number;
+        }
+    });
+</script>
+</body>
+</html>
