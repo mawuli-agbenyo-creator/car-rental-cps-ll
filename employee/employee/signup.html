@@ -7,12 +7,11 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <title>Login and Registration</title>
-    <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="../css/admin-signup.css">
+    <link rel="stylesheet" href="../css/employee-signup.css" />
   </head>
   <body>
     <div class="container">
@@ -40,11 +39,11 @@
           </svg>Click on signup if you don't have</li>
         </ul>
       </div>
-      
+
       <div class="">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title text-center">Admin Registration</h5>
+            <h5 class="card-title text-center">Employee Registration</h5>
             <form>
               <div class="form-group">
                 <label for="registerName">Full Name</label>
@@ -88,12 +87,12 @@
                 />
               </div>
               <div class="form-group">
-                <label for="registerWorkID">Work ID</label>
+                <label for="registerDepartment">Department</label>
                 <input
-                  type="number"
+                  type="department"
                   class="form-control"
-                  id="WorkID"
-                  placeholder="Enter your Work ID"
+                  id="department"
+                  placeholder="Enter your department"
                   required
                 />
               </div>
@@ -102,7 +101,7 @@
               </button>
             </form>
             <p class="account">
-              Have an account?<a href="./login.html">Login here</a>
+              Have an account?<a href="../index.html">Login here</a>
             </p>
           </div>
         </div>
@@ -113,7 +112,7 @@
       <div>
         <p>&copy; 20234, IME Limited</p>
       </div>
-      <div class="links">
+      <div>
         <a href="#">Privacy</a>
         <a href="#">Support</a>
         <a href="#">Terms</a>
@@ -124,6 +123,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../js/signup.js"></script>
+    <script src="../js/account.js"></script>
   </body>
 </html>
