@@ -164,5 +164,6 @@ body {
     color: rgba(255, 255, 255, 0.562);
     font-size: 30px;
     margin: 25px;
+    display: block;
   }
 }
