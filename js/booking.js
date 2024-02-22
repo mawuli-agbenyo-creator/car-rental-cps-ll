@@ -52,6 +52,7 @@ function handleBooking(ride) {
 
     const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
     bookings.push(booking);
+    alert("Booking Successful");
 
     localStorage.setItem("bookings", JSON.stringify(bookings));
     generateQRCode();
