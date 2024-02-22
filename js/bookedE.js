@@ -54,7 +54,35 @@ function setupPrintButton() {
 }
 
 
-function printBookedSlots(bookedSlots) {
+// function printBookedSlots(bookedSlots) {
+    
+//     const doc = new jsPDF();
+
+//     doc.setFontSize(12);
+//     doc.setFont('courier');
+
+//     doc.autoTable({
+//         head: [['Name', 'Department', 'Shifts', 'Time', 'Pickup Location']],
+//         body: bookedSlots.map(slot => [slot.name, slot.department, slot.shifts, slot.time, slot.pickupLocation]),
+//     });
+
+//     doc.save('booked_slots.pdf');
+// }
+document.addEventListener("DOMContentLoaded", () => {
+    displayBookedSlots();
+    setupPrintButton();
+});
+
+function setupPrintButton() {
+    const btn = document.querySelector('.print');
+
+    btn.addEventListener('click', () => {
+        printBookedSlots();
+    });
+}
+
+function printBookedSlots() {
+    const bookedSlots = getBookedSlots();
     
     const doc = new jsPDF();
 
