@@ -3,6 +3,13 @@
 document.addEventListener('DOMContentLoaded', function () {
     const addCustomerForm = document.getElementById('addCustomerForm');
     const customerList = document.getElementById('customerList');
+    const adminName = document.querySelector(".admin-name");
+
+    const admin = JSON.parse(localStorage.getItem("admin"));
+
+    if (admin && admin.fullName) {
+        adminName.textContent = admin.fullName;
+      }
 
     // Load existing customers from local storage on page load
     loadCustomersFromLocalStorage();

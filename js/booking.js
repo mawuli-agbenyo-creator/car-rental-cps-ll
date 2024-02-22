@@ -1,5 +1,3 @@
-
-
 function createElement(type, options = {}) {
     const element = document.createElement(type);
 
@@ -56,9 +54,31 @@ function handleBooking(ride) {
     bookings.push(booking);
 
     localStorage.setItem("bookings", JSON.stringify(bookings));
+    generateQRCode();
 
     console.log(booking);
 }
+
+// Generate a qrcode for the user after booking
+function generateQRCode() {
+    const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+    const qrCodeContainer = document.getElementById('qrcode');
+
+    if (bookings.length) {
+        const qrCode = new QRCode(qrCodeContainer, {
+            text: JSON.stringify(bookings),
+            width: 200,
+            height: 200,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    }
+
+    console.log(bookings);
+
+}
+
 
 
 function displayRides() {

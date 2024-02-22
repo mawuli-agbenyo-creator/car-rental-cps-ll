@@ -27,6 +27,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     />
+
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
     <!-- jQuery -->
     <!-- Custom styles -->
     <style>
@@ -90,12 +92,9 @@
         background-color: rgb(40, 40, 255);
       }
 
-      .nav-link{
-        background-color: #077bef;
-        color: white;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
+      #qrcode {
+        margin: 0 auto;
+        text-align: center;
       }
 
     
@@ -129,6 +128,8 @@
       </div>
     </div>
     </div>
+
+    <div id="qrcode"></div>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBQHU3yPgn7SssnNkaot7rMhZMjYswqU8&libraries=places&libraries=geometry"></script>
