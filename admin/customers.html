@@ -29,6 +29,25 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- AdminLTE JS -->
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.0.5/dist/js/adminlte.min.js"></script>
+
+    <style>
+      .customer-item{
+        list-style-type: none;
+      }
+
+      .button{
+        margin-top: 10px;
+        align-items: center;
+        display: inline;
+        justify-content: end;
+        border: none;
+        background-color: #ff3300;
+        border-radius: 5px;
+        padding: 5px;
+        margin-left: 5rem;
+        color: white;
+      }
+    </style>
   </head>
   <body class="hold-transition sidebar-mini">
     <div class="wrapper">
@@ -43,9 +62,6 @@
           </li>
           <li class="nav-item d-none d-sm-inline-block">
             <a href="dashboard.html" class="nav-link">Home</a>
-          </li>
-          <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Contact</a>
           </li>
         </ul>
 
@@ -79,27 +95,22 @@
         <!-- Brand Logo -->
         <a href="#" class="brand-link">
           <img
-            src="path/to/your/logo.png"
+            src="/images/imeLogo.png"
             alt="Logo"
             class="brand-image img-circle elevation-3"
             style="opacity: 0.8"
+            height="90"
+            width="90"
           />
-          <span class="brand-text font-weight-light">Car Rental</span>
+          <span class="brand-text font-weight-light">IME LIMITED</span>
         </a>
 
         <!-- Sidebar -->
         <div class="sidebar">
           <!-- User Panel -->
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-              <img
-                src="/images/imeLogo.png"
-                class="img-circle elevation-2"
-                alt="User Image"
-              />
-            </div>
             <div class="info">
-              <a href="#" class="d-block admin-name">Project Work</a>
+              <a href="#" class="d-block admin-name">Your Name</a>
             </div>
           </div>
 
@@ -129,26 +140,25 @@
               data-accordion="false"
             >
               <!-- Sample Sidebar Items -->
-              <li class="nav-item">
-                <a href="dashboard.html" class="nav-link">
-                  <i class="nav-icon fas fa-car"></i>
-                  <p>Cars</p>
-                </a>
-              </li>
 
               <li class="nav-item">
-                <a href="rides.html" class="nav-link">
-                  <i class="nav-icon fas fa-bus"></i>
-                  <p>Booked Rides</p>
+                <a href="bookedEmployyes.html" class="nav-link ">
+                  <i class="nav-icon fas fa-car"></i>
+                  <p>Booked Employees</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="employee.html" class="nav-link active">
+                <a href="customers.html" class="nav-link active">
                   <i class="nav-icon fas fa-users"></i>
-                  <p>Employees</p>
+                  <p>Drivers</p>
                 </a>
               </li>
-             
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-chart-bar"></i>
+                  <p>Reports</p>
+                </a>
+              </li>
               <!-- Add more menu items as needed -->
               <li class="nav-item">
                 <a href="../index.html" class="nav-link">
@@ -167,35 +177,71 @@
       <div class="content-wrapper">
         <!-- Your page content goes here -->
         <section class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <!-- Existing Customers List -->
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">Existing Employee</h4>
-                            </div>
-                            <div class="card-body">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Employee ID</th>
-                                            <th>License Number</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="customerList">
-                                        <!-- Customer items will be dynamically added here -->
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+          <div class="container-fluid">
+            <div class="row">
+              <!-- Existing Customers List -->
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-header">
+                    <h4 class="card-title">Existing Drivers</h4>
+                  </div>
+                  <div class="card-body">
+                    <ul id="customerList" class="customer-list">
+                      <!-- Customer items will be dynamically added here -->
+                    </ul>
+                  </div>
                 </div>
+              </div>
+
+              <!-- Add Customer Form -->
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-header">
+                    <h4 class="card-title">Add A Driver</h4>
+                  </div>
+                  <div class="card-body">
+                    <form id="addCustomerForm">
+                      <div class="form-group">
+                        <label for="customerName">Drivers Name</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="customerName"
+                          placeholder="Enter driver name"
+                          required
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="customerEmail">Employee ID</label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="employeeID"
+                          placeholder="Enter ID number"
+                          required
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="driverLicense">License Number</label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="driverLicense"
+                          placeholder="Enter license number"
+                          required
+                        />
+                      </div>
+                      <button type="submit" class="btn btn-primary">
+                        Add Driver
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </section>
-    </div>
-    
+      </div>
 
       <!-- Footer -->
       <footer class="main-footer">

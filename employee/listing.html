@@ -42,12 +42,21 @@
         margin-bottom: 20px;
       }
 
-      .nav-item a {
+      .nav-item {
         display: flex;
-        justify-content: space-between;
       }
-      .nav-item a p {
+      /* .nav-item a p {
         margin-left: 10px;
+      } */
+
+      
+      @media screen and (max-width: 600px){
+        
+        .nav-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
       }
   
 
@@ -81,6 +90,14 @@
         background-color: rgb(40, 40, 255);
       }
 
+      .nav-link{
+        background-color: #077bef;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+      }
+
     
     </style>
   </head>
@@ -88,7 +105,9 @@
     <div class="container">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="#">
+            <img src="/images/imeLogo.png" height="90" width="100" alt="">
+          </a>
         </div>
         <p class="nav-item">
           <a href="../index.html" class="nav-link">

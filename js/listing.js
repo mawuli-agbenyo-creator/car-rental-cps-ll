@@ -20,6 +20,10 @@ function book(event) {
     alert("Please fill in all fields");
     return;
   }
+  // save booking to local storage
+   
+  const bookings = JSON.parse(localStorage.getItem("booking")) || [];
+  bookings.push(booking);
 
   try {
     localStorage.setItem("booking", JSON.stringify(booking));
