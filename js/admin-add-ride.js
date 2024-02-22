@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Save the new ride to local storage
     saveRideToLocalStorage({
-      car_name: rideName,
+      DriverName: rideName,
       riderId: riderId,
       pickupLocation: pickupLocation,
       dropofLocation: dropofLocation,
@@ -114,9 +114,6 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("Rides", JSON.stringify(updatedRides));
 }
 
-
-
-
   function createRideListItem(
     rideName,
     riderId,
@@ -144,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Add ride details to the list item
     const rideDetailsText = document.createElement("p");
-    rideDetailsText.textContent = `Drivers Name: ${rideName}- Work ID: ${riderId} - Car Number: ${carNumber} - Pick-Up Location: ${pickupLocation}- Drop-Off Location ${dropofLocation} - Shift: ${shifts} - Time: ${time}`;
+    rideDetailsText.textContent = `car_name: ${rideName}- Work ID: ${riderId} - Car Number: ${carNumber} - Pick-Up Location: ${pickupLocation}- Drop-Off Location ${dropofLocation} - Shift: ${shifts} - Time: ${time}`;
     newRideItem.appendChild(rideDetailsText);
 
     // Add delete button to remove the ride
@@ -190,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Display existing rides in the list
     for (const rideDetails of existingRides) {
       const newRideItem = createRideListItem(
-        rideDetails.driver_name,
+        rideDetails.DriverName,
         rideDetails.riderId,
         rideDetails.pickupLocation,
         rideDetails.dropofLocation,

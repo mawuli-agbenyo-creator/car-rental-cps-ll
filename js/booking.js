@@ -97,7 +97,7 @@ function displayRides() {
             style: { width: '300px' }
         });
 
-        const details = ['car_name', 'riderId', 'shifts', 'time', 'pickupLocation', 'dropofLocation'];
+        const details = ['DriverName', 'riderId', 'shifts', 'time', 'pickupLocation', 'dropofLocation'];
         const rideInfo = details.map(detail => createElement('p', { textContent: `${capitalizeFirstLetter(detail)}: ${ride[detail]}` }));
 
         const btn = createButton(ride);
