@@ -26,9 +26,16 @@ document.addEventListener("DOMContentLoaded", function () {
     bookingsCountElement.textContent = bookingsCount;
 
     // Display the number of users in the system
-    const usersCountElement = document.getElementById('Employees_count');
+const usersCountElement = document.getElementById('Employees_count');
+try {
+    const users = JSON.parse(localStorage.getItem('users')) || {};
     usersCountElement.textContent = Object.keys(users).length;
-    console.log(usersCountElement);
+} catch (error) {
+    console.error('Error getting user count:', error);
+    usersCountElement.textContent = 'N/A';
+}
+
+   
 
     // Display the number of rides in the system
     const ridesCount = Object.keys(rides).length;
@@ -76,9 +83,9 @@ document.addEventListener("DOMContentLoaded", function () {
     );
     rideList.appendChild(newRideItem);
 
-    // Save the new ride to local storage
+    // Save the new ride to local storage//
     saveRideToLocalStorage({
-      car_name: rideName,
+      rideName: rideName,
       riderId: riderId,
       pickupLocation: pickupLocation,
       dropofLocation: dropofLocation,
@@ -107,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Filter out the ride to be removed
     const updatedRides = existingRides.filter(
-      (ride) => ride.driver_name !== rideName
+      (ride) => ride.rideName !== rideName
     );
 
     // Save the updated list back to local storage
@@ -163,6 +170,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     editButton.addEventListener("click", function () {
       // Get form values and set them to the form fields for editing
+      console.log(rideName);
       document.getElementById("rideName").value = rideName;
       document.getElementById("riderId").value = riderId;
       document.getElementById("pickupLocation").value = pickupLocation;
@@ -190,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Display existing rides in the list
     for (const rideDetails of existingRides) {
       const newRideItem = createRideListItem(
-        rideDetails.driver_name,
+        rideDetails.rideName,
         rideDetails.riderId,
         rideDetails.pickupLocation,
         rideDetails.dropofLocation,
